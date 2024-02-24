@@ -1,9 +1,15 @@
-import { Flex } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import ThemeToggler from "../ThemeToggler/ThemeToggler";
+import { useAuth } from "../../hooks/useAuth";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../redux/auth/operations";
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+  const { isLoggedIn } = useAuth();
+
   return (
     <>
       <Flex
@@ -16,9 +22,19 @@ const Navigation = () => {
         p={"16px"}
         gap={"16px"}
       >
-        <Link to={"/register"}>Sign Up</Link>
-        <Link to={"/login"}>Sign In</Link>
-        <Link to={"/"}>Contacts</Link>
+        {!isLoggedIn && (
+          <>
+            <Link to={"/register"}>Sign Up</Link>
+            <Link to={"/login"}>Sign In</Link>
+          </>
+        )}
+        {isLoggedIn && (
+          <>
+            <Link to={"/"}>Contacts</Link>
+            <Button onClick={() => dispatch(logoutUser())}>Logout</Button>
+          </>
+        )}
+
         <ThemeToggler />
       </Flex>
     </>

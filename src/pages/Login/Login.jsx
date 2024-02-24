@@ -21,9 +21,11 @@ import {
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Helmet } from "react-helmet";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../redux/auth/operations";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,10 +39,16 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    dispatch(
+      loginUser({
+        email: userEmail,
+        password: password,
+      })
+    );
+
     try {
       setUserEmail("");
       setPassword("");
-      navigate("/");
     } catch (error) {
       if (!error?.response) {
         setErrMsg("No Server Response");

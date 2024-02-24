@@ -27,8 +27,12 @@ import {
 } from "@chakra-ui/icons";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
+import { useDispatch } from "react-redux";
+import { createUser } from "../../redux/auth/operations";
 
 const Register = () => {
+  const dispatch = useDispatch();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showMatchPassword, setShowMatchPassword] = useState(false);
 
@@ -97,11 +101,16 @@ const Register = () => {
     setErrMsg("");
   }, [userEmail, password, matchPassword]);
 
-  const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    dispatch(
+      createUser({
+        name: userName,
+        email: userEmail,
+        password: password,
+      })
+    );
     const v1 = USER_EMAIL_REGEX.test(userEmail);
     const v2 = FULL_PASS_REGEX.test(password);
     console.log(v1, v2);
@@ -115,7 +124,6 @@ const Register = () => {
       setUserEmail("");
       setPassword("");
       setMatchPassword("");
-      navigate("/welcome", { replace: true });
     } catch (error) {
       console.log(error);
       if (!error?.response) {
