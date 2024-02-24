@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter } from "../../redux/contacts/filterSlice.js";
 import { selectFilter } from "../../redux/contacts/contactsSelectors.js";
@@ -33,7 +32,3 @@ const Filter = () => {
 };
 
 export default Filter;
-
-Filter.propTypes = {
-  filter: PropTypes.string,
-};

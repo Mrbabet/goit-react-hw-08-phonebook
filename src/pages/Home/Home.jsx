@@ -13,7 +13,7 @@ const Home = () => {
         <title>Phonenook</title>
       </Helmet>
 
-      <Box w={["100%", "600px"]} m={"0 auto"} p={"16px"} pt={"128px"}>
+      <Box w={["100%", "100%", "600px"]} m={"0 auto"} p={"16px"} pt={"128px"}>
         <Flex
           justifyContent={"center"}
           alignItems={"center"}
@@ -30,7 +30,7 @@ const Home = () => {
         <Box mb={"16px"}>
           <Filter />
         </Box>
-        <Box p={"16px"} borderRadius={"20px"}>
+        <Box>
           <Contacts />
         </Box>
       </Box>
