@@ -348,7 +348,11 @@ const Register = () => {
                 </Button>
                 <Text>
                   Already have an account?{" "}
-                  <ChakraLink as={Link} color="#FC4747" to="/login">
+                  <ChakraLink
+                    as={Link}
+                    color="#FC4747"
+                    to="/goit-react-hw-08-phonebook/login"
+                  >
                     Sign In
                   </ChakraLink>
                 </Text>
