@@ -47,8 +47,8 @@ const Navigation = () => {
       >
         {!isLoggedIn && (
           <>
-            <Link to={"/register"}>Sign Up</Link>
-            <Link to={"/login"}>Sign In</Link>
+            <Link to={"/goit-react-hw-08-phonebook/register"}>Sign Up</Link>
+            <Link to={"/goit-react-hw-08-phonebook/login"}>Sign In</Link>
           </>
         )}
         {isLoggedIn && (

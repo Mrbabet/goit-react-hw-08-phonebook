@@ -28,23 +28,32 @@ const App = () => {
       {!isRefreshing && (
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route path="/goit-react-hw-08-phonebook/" element={<Layout />}>
               <Route
                 index
                 element={
-                  <PrivateRoute redirectTo="/login" component={<Home />} />
+                  <PrivateRoute
+                    redirectTo="/goit-react-hw-08-phonebook/login"
+                    component={<Home />}
+                  />
                 }
               />
               <Route
-                path="/login"
+                path="/goit-react-hw-08-phonebook/login"
                 element={
-                  <RestrictedRoute redirectTo="/" component={<Login />} />
+                  <RestrictedRoute
+                    redirectTo="/goit-react-hw-08-phonebook/"
+                    component={<Login />}
+                  />
                 }
               />
               <Route
-                path="/register"
+                path="/goit-react-hw-08-phonebook/register"
                 element={
-                  <RestrictedRoute redirectTo="/" component={<Register />} />
+                  <RestrictedRoute
+                    redirectTo="/goit-react-hw-08-phonebook/"
+                    component={<Register />}
+                  />
                 }
               />
             </Route>

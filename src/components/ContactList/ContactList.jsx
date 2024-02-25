@@ -190,25 +190,6 @@ const ContactList = () => {
                         </ButtonGroup>
                       </PopoverContent>
                     </Popover>
-                    {/* <Button
-                      p={0}
-                      _hover={{ bg: "rgba(80, 113, 202, 0.1)" }}
-                      bg={"transparent"}
-                      color={"#5071ca"}
-                      onClick={() =>
-                        dispatch(
-                          updateContact({
-                            contactId: contact.id,
-                            name: "zed",
-                            number: "123456",
-                          })
-                        )
-                      }
-                      gap={"8px"}
-                    >
-                      <EditIcon />
-                      {editBtnText}
-                    </Button> */}
                   </Td>
                 </Tr>
               ))}
