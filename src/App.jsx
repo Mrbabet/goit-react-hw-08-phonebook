@@ -30,7 +30,7 @@ const App = () => {
           <Routes>
             <Route path="/goit-react-hw-08-phonebook/" element={<Layout />}>
               <Route
-                index
+                path="/goit-react-hw-08-phonebook/"
                 element={
                   <PrivateRoute
                     redirectTo="/goit-react-hw-08-phonebook/login"
