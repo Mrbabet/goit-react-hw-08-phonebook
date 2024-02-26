@@ -126,13 +126,6 @@ const Register = () => {
       setMatchPassword("");
     } catch (error) {
       console.log(error);
-      if (!error?.response) {
-        setErrMsg("No Server Response");
-      } else if (error.response?.status === 409) {
-        setErrMsg("Username Taken");
-      } else {
-        setErrMsg("Registration failed");
-      }
     }
   };
 

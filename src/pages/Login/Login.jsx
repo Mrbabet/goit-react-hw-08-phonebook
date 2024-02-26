@@ -21,7 +21,7 @@ import {
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Helmet } from "react-helmet";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../redux/auth/operations";
 
 const Login = () => {
@@ -29,7 +29,8 @@ const Login = () => {
 
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errMsg, setErrMsg] = useState("");
+  const [errMsg, setErrMsg] = useState(null);
+
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -50,16 +51,7 @@ const Login = () => {
       setUserEmail("");
       setPassword("");
     } catch (error) {
-      if (!error?.response) {
-        setErrMsg("No Server Response");
-      } else if (error.response?.status === 400) {
-        setErrMsg("Missing username or password");
-      }
-      if (error.response?.status === 401) {
-        setErrMsg("Unauthorized");
-      } else {
-        setErrMsg("Login Failed");
-      }
+      console.log(error);
     }
   };
 
